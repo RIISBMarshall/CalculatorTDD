@@ -11,13 +11,13 @@ import com.example.bmarshall.calculatortdd.R;
 
 public class CalculatorView extends AppCompatActivity {
     private TextView screen;
-    private Boolean operationWasSelected;
+    public Controller controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Controller controller = new Controller();
+        controller = new Controller();
         screen = (TextView) findViewById(R.id.screenTextView);
     }
 
@@ -30,14 +30,8 @@ public class CalculatorView extends AppCompatActivity {
     }
 
     public void onClickOperation(View v) {
-
-    }
-
-    public Boolean getOperationWasSelected() {
-        return operationWasSelected;
-    }
-
-    public void setOperationWasSelected(Boolean bool){
-        operationWasSelected = bool;
+        Button operationButton = (Button) findViewById(v.getId());
+        String mathOperation = (String) operationButton.getText();
+        controller.setSelectedMathOperation(mathOperation);
     }
 }

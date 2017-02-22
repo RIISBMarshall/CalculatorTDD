@@ -3,7 +3,10 @@ package com.example.bmarshall.calculatortdd;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.bmarshall.calculatortdd.Model.Calculator;
 import com.example.bmarshall.calculatortdd.View.CalculatorView;
+
+import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -75,12 +78,11 @@ public class CalculatorViewTest {
         assertEquals("number entered should equal number on screen", numberEntered, screenView.getText());
     }
 
-    //Feature 2: A user can can select a math operation(+,-,*,/)
     @Test
     public void operationButtonClicked(){
-        calculatorView.setOperationWasSelected(false);
         addView.callOnClick();
-        assertEquals("operationWasSelected should be set to true after" +
-                " operation button click", true, calculatorView.getOperationWasSelected());
+        Assert.assertEquals("after setting MathOperation with a + the," +
+                        " operation should be equal to ADD",
+                Calculator.MathOperation.ADD, calculatorView.controller.getSelectedMathOperation());
     }
 }
