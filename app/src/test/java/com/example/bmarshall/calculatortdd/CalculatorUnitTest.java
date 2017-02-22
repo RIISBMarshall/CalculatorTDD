@@ -22,7 +22,7 @@ import static org.junit.Assert.assertThat;
  */
 
 @RunWith(RobolectricGradleTestRunner.class)
-@Config(constants = BuildConfig.class)
+@Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
 public class CalculatorUnitTest {
     private Button numberOneView;
     private Button numberTwoView;
@@ -43,9 +43,7 @@ public class CalculatorUnitTest {
     public void firstNumberEntered(){
         numberOneView.callOnClick();
         numberTwoView.callOnClick();
-        String firstNumberPressed = (String) numberOneView.getText();
-        String secondNumberPressed = (String) numberTwoView.getText();
-        String numberEntered = firstNumberPressed + secondNumberPressed;
+        String numberEntered = Integer.toString(12);
         assertEquals("number entered should equal number on screen", numberEntered, screenView.getText());
     }
 }
