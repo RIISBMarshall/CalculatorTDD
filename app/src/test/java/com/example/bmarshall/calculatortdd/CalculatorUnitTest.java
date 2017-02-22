@@ -26,6 +26,13 @@ import static org.junit.Assert.assertThat;
 public class CalculatorUnitTest {
     private Button numberOneView;
     private Button numberTwoView;
+    private Button numberThreeView;
+    private Button numberFourView;
+    private Button numberFiveView;
+    private Button numberSixView;
+    private Button numberSevenView;
+    private Button numberEightView;
+    private Button numberNineView;
     private TextView screenView;
     private MainActivity mainActivity;
 
@@ -35,6 +42,13 @@ public class CalculatorUnitTest {
         assertNotNull("Main Activity not setup", mainActivity);
         numberOneView=(Button) mainActivity.findViewById(R.id.one);
         numberTwoView=(Button) mainActivity.findViewById(R.id.two);
+        numberThreeView=(Button) mainActivity.findViewById(R.id.three);
+        numberFourView=(Button) mainActivity.findViewById(R.id.four);
+        numberFiveView=(Button) mainActivity.findViewById(R.id.five);
+        numberSixView=(Button) mainActivity.findViewById(R.id.six);
+        numberSevenView=(Button) mainActivity.findViewById(R.id.seven);
+        numberEightView=(Button) mainActivity.findViewById(R.id.eight);
+        numberNineView=(Button) mainActivity.findViewById(R.id.nine);
         screenView=(TextView) mainActivity.findViewById(R.id.screenTextView);
     }
 
@@ -43,7 +57,14 @@ public class CalculatorUnitTest {
     public void firstNumberEntered(){
         numberOneView.callOnClick();
         numberTwoView.callOnClick();
-        String numberEntered = Integer.toString(12);
+        numberThreeView.callOnClick();
+        numberFourView.callOnClick();
+        numberFiveView.callOnClick();
+        numberSixView.callOnClick();
+        numberSevenView.callOnClick();
+        numberEightView.callOnClick();
+        numberNineView.callOnClick();
+        String numberEntered = Integer.toString(123456789);
         assertEquals("number entered should equal number on screen", numberEntered, screenView.getText());
     }
 }
