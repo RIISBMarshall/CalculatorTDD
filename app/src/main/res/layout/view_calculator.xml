@@ -20,7 +20,7 @@
         android:layout_gravity="fill_vertical"
         android:layout_row="0"
         android:gravity="bottom|end"
-        android:text=""
+        android:text="@string/zero"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button

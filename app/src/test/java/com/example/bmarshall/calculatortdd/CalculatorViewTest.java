@@ -8,6 +8,7 @@ import com.example.bmarshall.calculatortdd.View.CalculatorView;
 
 import junit.framework.Assert;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -62,7 +63,6 @@ public class CalculatorViewTest {
         screenView = (TextView) calculatorView.findViewById(R.id.screenTextView);
     }
 
-    //Feature 1: A user can enter the first number
     @Test
     public void firstNumberEntered() {
         numberOneView.callOnClick();
@@ -79,17 +79,16 @@ public class CalculatorViewTest {
     }
 
     @Test
-    public void secondNumberEntered(){
+    public void secondNumberEntered() {
         numberThreeView.callOnClick();
         numberFourView.callOnClick();
         addView.callOnClick();
-        Boolean isTrue = true;
         Assert.assertEquals("The operationWasSelected Boolean should be set to true in order for " +
-                "the second number to be entered",
-                isTrue, calculatorView.controller.getOperationWasSelected());
-        String savedNumberAsString = Double.toString(calculatorView.controller.getSavedNumber());
+                        "the second number to be entered",
+                true, calculatorView.controller.getOperationWasSelected());
+        String savedNumberAsString = Integer.toString((int) calculatorView.controller.getSavedNumber());
         assertEquals("saved number should be equal to the number on screen before " +
-                "entering the second number", savedNumberAsString, screenView.getText());
+                "entering the second number", screenView.getText(), savedNumberAsString);
 
         numberOneView.callOnClick();
         numberTwoView.callOnClick();
@@ -119,5 +118,24 @@ public class CalculatorViewTest {
         Assert.assertEquals("after setting MathOperation with a X the," +
                         " operation should be equal to MULTIPLY",
                 Calculator.MathOperation.MULTIPLY, calculatorView.controller.getSelectedMathOperation());
+    }
+
+    @After
+    public void tearDown() {
+        numberOneView = null;
+        numberTwoView = null;
+        numberThreeView = null;
+        numberFourView = null;
+        numberFiveView = null;
+        numberSixView = null;
+        numberSevenView = null;
+        numberEightView = null;
+        numberNineView = null;
+        addView = null;
+        divideView = null;
+        subtractView = null;
+        multiplyView = null;
+        screenView = null;
+        calculatorView = null;
     }
 }

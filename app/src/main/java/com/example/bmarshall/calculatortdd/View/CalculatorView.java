@@ -16,12 +16,20 @@ public class CalculatorView extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.view_calculator);
         controller = new Controller();
         screen = (TextView) findViewById(R.id.screenTextView);
     }
 
     public void onClickNumber(View v) {
+        if (controller.getOperationWasSelected() == true) {
+            screen.setText("");
+            controller.setOperationWasSelected(false);
+        }
+        if (screen.getText().equals("0")) {
+            screen.setText("");
+        }
+
         Button numberButton = (Button) findViewById(v.getId());
         String numberClicked = (String) numberButton.getText();
         String screenNumber = (String) screen.getText();
@@ -33,5 +41,7 @@ public class CalculatorView extends AppCompatActivity {
         Button operationButton = (Button) findViewById(v.getId());
         String mathOperation = (String) operationButton.getText();
         controller.setSelectedMathOperation(mathOperation);
+        String numberToSave = (String) screen.getText();
+        controller.setSavedNumber(Double.parseDouble(numberToSave));
     }
 }

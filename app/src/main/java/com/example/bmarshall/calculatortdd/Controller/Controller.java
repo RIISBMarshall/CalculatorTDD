@@ -34,11 +34,11 @@ public class Controller {
         calculator.setSelectedMathOperation(selectedMathOperation);
     }
 
-    public void setOperationWasSelected(Boolean operationWasSelected) {
+    public void setOperationWasSelected(boolean operationWasSelected) {
         calculator.setOperationWasSelected(operationWasSelected);
     }
 
-    public void setSavedNumber(Double savedNumber) {
+    public void setSavedNumber(double savedNumber) {
         calculator.setSavedNumber(savedNumber);
     }
 }

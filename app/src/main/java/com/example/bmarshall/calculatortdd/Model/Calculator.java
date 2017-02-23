@@ -36,13 +36,14 @@ public class Calculator {
                 selectedMathOperation = MathOperation.MULTIPLY;
                 break;
         }
+        operationWasSelected = true;
     }
 
     public MathOperation getSelectedMathOperation() {
         return selectedMathOperation;
     }
 
-    public boolean getOperationWasSelected(){
+    public boolean getOperationWasSelected() {
         return operationWasSelected;
     }
 
@@ -54,11 +55,11 @@ public class Calculator {
         this.selectedMathOperation = selectedMathOperation;
     }
 
-    public void setOperationWasSelected(Boolean operationWasSelected) {
+    public void setOperationWasSelected(boolean operationWasSelected) {
         this.operationWasSelected = operationWasSelected;
     }
 
-    public void setSavedNumber(Double savedNumber) {
+    public void setSavedNumber(double savedNumber) {
         this.savedNumber = savedNumber;
     }
 }

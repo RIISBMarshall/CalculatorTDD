@@ -64,6 +64,17 @@ public class ControllerTest {
 
     @Test
     public void setSavedNumberTest() {
+        double numberToSave = 52.9;
+        controller.setSavedNumber(numberToSave);
+        Assert.assertEquals(numberToSave, controller.getSavedNumber(), 0);
+    }
 
+    @Test
+    public void setSelectedMathOperationTeset() {
+        String mathOperation = "+";
+        controller.setSelectedMathOperation(mathOperation);
+        Assert.assertEquals("after setting MathOperation with a + the," +
+                        " operation should be equal to ADD",
+                Calculator.MathOperation.ADD, controller.getSelectedMathOperation());
     }
 }
