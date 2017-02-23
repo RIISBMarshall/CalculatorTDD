@@ -20,15 +20,34 @@ public class CalculatorTest {
     private Calculator calculator;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         calculator = new Calculator();
     }
 
     @Test
-    public void mathOperationSet(){
+    public void mathOperationSet() {
         calculator.setSelectedMathOperation("+");
+
         Assert.assertEquals("after setting MathOperation with a + the," +
-                " operation should be equal to ADD",
+                        " operation should be equal to ADD",
                 Calculator.MathOperation.ADD, calculator.getSelectedMathOperation());
+
+        calculator.setSelectedMathOperation("-");
+
+        Assert.assertEquals("after setting MathOperation with a - the," +
+                        " operation should be equal to SUBTRACT",
+                Calculator.MathOperation.SUBTRACT, calculator.getSelectedMathOperation());
+
+        calculator.setSelectedMathOperation("/");
+
+        Assert.assertEquals("after setting MathOperation with a / the," +
+                        " operation should be equal to DIVIDE",
+                Calculator.MathOperation.DIVIDE, calculator.getSelectedMathOperation());
+
+        calculator.setSelectedMathOperation("X");
+
+        Assert.assertEquals("after setting MathOperation with a X the," +
+                        " operation should be equal to ADD",
+                Calculator.MathOperation.MULTIPLY, calculator.getSelectedMathOperation());
     }
 }

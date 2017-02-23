@@ -10,15 +10,15 @@ public class Controller {
 
     private Calculator calculator;
 
-    public Controller(){
+    public Controller() {
         calculator = new Calculator();
     }
 
-    public void setSelectedMathOperation(String mathOperation){
+    public void setSelectedMathOperation(String mathOperation) {
         calculator.setSelectedMathOperation(mathOperation);
     }
 
-    public Calculator.MathOperation getSelectedMathOperation(){
+    public Calculator.MathOperation getSelectedMathOperation() {
         return calculator.getSelectedMathOperation();
     }
 }

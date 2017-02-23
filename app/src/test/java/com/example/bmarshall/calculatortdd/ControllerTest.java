@@ -21,12 +21,12 @@ public class ControllerTest {
     private Controller controller;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         controller = new Controller();
     }
 
     @Test
-    public void setSelectedMathOperationTest(){
+    public void setSelectedMathOperationTest() {
         String mathOperation = "+";
         controller.setSelectedMathOperation(mathOperation);
         Assert.assertEquals("after setting MathOperation with a + the," +
@@ -35,7 +35,7 @@ public class ControllerTest {
     }
 
     @Test
-    public void getSelectedMathOperationTest(){
+    public void getSelectedMathOperationTest() {
         String mathOperation = "+";
         controller.setSelectedMathOperation(mathOperation);
         Assert.assertEquals("after setting MathOperation with a + the," +

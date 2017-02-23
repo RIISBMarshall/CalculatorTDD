@@ -43,28 +43,28 @@ public class CalculatorViewTest {
     private CalculatorView calculatorView;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         calculatorView = Robolectric.buildActivity(CalculatorView.class).create().get();
         assertNotNull("Main Activity not setup", calculatorView);
-        numberOneView=(Button) calculatorView.findViewById(R.id.one);
-        numberTwoView=(Button) calculatorView.findViewById(R.id.two);
-        numberThreeView=(Button) calculatorView.findViewById(R.id.three);
-        numberFourView=(Button) calculatorView.findViewById(R.id.four);
-        numberFiveView=(Button) calculatorView.findViewById(R.id.five);
-        numberSixView=(Button) calculatorView.findViewById(R.id.six);
-        numberSevenView=(Button) calculatorView.findViewById(R.id.seven);
-        numberEightView=(Button) calculatorView.findViewById(R.id.eight);
-        numberNineView=(Button) calculatorView.findViewById(R.id.nine);
-        addView=(Button) calculatorView.findViewById(R.id.add);
-        subtractView=(Button) calculatorView.findViewById(R.id.subtract);
-        divideView=(Button) calculatorView.findViewById(R.id.divide);
-        multiplyView=(Button) calculatorView.findViewById(R.id.multiply);
-        screenView=(TextView) calculatorView.findViewById(R.id.screenTextView);
+        numberOneView = (Button) calculatorView.findViewById(R.id.one);
+        numberTwoView = (Button) calculatorView.findViewById(R.id.two);
+        numberThreeView = (Button) calculatorView.findViewById(R.id.three);
+        numberFourView = (Button) calculatorView.findViewById(R.id.four);
+        numberFiveView = (Button) calculatorView.findViewById(R.id.five);
+        numberSixView = (Button) calculatorView.findViewById(R.id.six);
+        numberSevenView = (Button) calculatorView.findViewById(R.id.seven);
+        numberEightView = (Button) calculatorView.findViewById(R.id.eight);
+        numberNineView = (Button) calculatorView.findViewById(R.id.nine);
+        addView = (Button) calculatorView.findViewById(R.id.add);
+        subtractView = (Button) calculatorView.findViewById(R.id.subtract);
+        divideView = (Button) calculatorView.findViewById(R.id.divide);
+        multiplyView = (Button) calculatorView.findViewById(R.id.multiply);
+        screenView = (TextView) calculatorView.findViewById(R.id.screenTextView);
     }
 
     //Feature 1: A user can enter the first number
     @Test
-    public void firstNumberEntered(){
+    public void firstNumberEntered() {
         numberOneView.callOnClick();
         numberTwoView.callOnClick();
         numberThreeView.callOnClick();
@@ -79,10 +79,25 @@ public class CalculatorViewTest {
     }
 
     @Test
-    public void operationButtonClicked(){
+    public void operationButtonClicked() {
         addView.callOnClick();
         Assert.assertEquals("after setting MathOperation with a + the," +
                         " operation should be equal to ADD",
                 Calculator.MathOperation.ADD, calculatorView.controller.getSelectedMathOperation());
+
+        subtractView.callOnClick();
+        Assert.assertEquals("after setting MathOperation with a - the," +
+                        " operation should be equal to SUBTRACT",
+                Calculator.MathOperation.SUBTRACT, calculatorView.controller.getSelectedMathOperation());
+
+        divideView.callOnClick();
+        Assert.assertEquals("after setting MathOperation with a / the," +
+                        " operation should be equal to DIVIDE",
+                Calculator.MathOperation.DIVIDE, calculatorView.controller.getSelectedMathOperation());
+
+        multiplyView.callOnClick();
+        Assert.assertEquals("after setting MathOperation with a X the," +
+                        " operation should be equal to MULTIPLY",
+                Calculator.MathOperation.MULTIPLY, calculatorView.controller.getSelectedMathOperation());
     }
 }

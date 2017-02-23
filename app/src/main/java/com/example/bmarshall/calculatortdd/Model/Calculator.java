@@ -14,12 +14,12 @@ public class Calculator {
 
     private Boolean operationWasSelected;
 
-    public Calculator(){
+    public Calculator() {
 
     }
 
     //Feature 2: A user can can select a math operation(+,-,*,/)
-    public void setSelectedMathOperation(String mathOperation){
+    public void setSelectedMathOperation(String mathOperation) {
         switch (mathOperation) {
             case "+":
                 selectedMathOperation = MathOperation.ADD;
@@ -37,7 +37,7 @@ public class Calculator {
     }
 
     //Feature 2: A user can can select a math operation(+,-,*,/)
-    public MathOperation getSelectedMathOperation(){
+    public MathOperation getSelectedMathOperation() {
         return selectedMathOperation;
     }
 }
