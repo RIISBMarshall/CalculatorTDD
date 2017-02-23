@@ -62,4 +62,20 @@ public class Calculator {
     public void setSavedNumber(double savedNumber) {
         this.savedNumber = savedNumber;
     }
+
+    public void add(double secondNumber){
+
+    }
+
+    public void subtract(double secondNumber){
+
+    }
+
+    public void divide(double secondNumber){
+
+    }
+
+    public void multiply(double secondNumber){
+
+    }
 }

@@ -44,4 +44,8 @@ public class CalculatorView extends AppCompatActivity {
         String numberToSave = (String) screen.getText();
         controller.setSavedNumber(Double.parseDouble(numberToSave));
     }
+
+    public void onClickEquals(View v){
+
+    }
 }

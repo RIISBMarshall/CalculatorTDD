@@ -27,19 +27,20 @@ import static org.junit.Assert.assertThat;
 @RunWith(RobolectricGradleTestRunner.class)
 @Config(constants = BuildConfig.class, sdk = 21, manifest = "src/main/AndroidManifest.xml")
 public class CalculatorViewTest {
-    private Button numberOneView;
-    private Button numberTwoView;
-    private Button numberThreeView;
-    private Button numberFourView;
-    private Button numberFiveView;
-    private Button numberSixView;
-    private Button numberSevenView;
-    private Button numberEightView;
-    private Button numberNineView;
-    private Button addView;
-    private Button divideView;
-    private Button subtractView;
-    private Button multiplyView;
+    private Button numberOneButton;
+    private Button numberTwoButton;
+    private Button numberThreeButton;
+    private Button numberFourButton;
+    private Button numberFiveButton;
+    private Button numberSixButton;
+    private Button numberSevenButton;
+    private Button numberEightButton;
+    private Button numberNineButton;
+    private Button addButton;
+    private Button divideButton;
+    private Button subtractButton;
+    private Button multiplyButton;
+    private Button equalsButton;
     private TextView screenView;
     private CalculatorView calculatorView;
 
@@ -47,42 +48,43 @@ public class CalculatorViewTest {
     public void setUp() {
         calculatorView = Robolectric.buildActivity(CalculatorView.class).create().get();
         assertNotNull("Main Activity not setup", calculatorView);
-        numberOneView = (Button) calculatorView.findViewById(R.id.one);
-        numberTwoView = (Button) calculatorView.findViewById(R.id.two);
-        numberThreeView = (Button) calculatorView.findViewById(R.id.three);
-        numberFourView = (Button) calculatorView.findViewById(R.id.four);
-        numberFiveView = (Button) calculatorView.findViewById(R.id.five);
-        numberSixView = (Button) calculatorView.findViewById(R.id.six);
-        numberSevenView = (Button) calculatorView.findViewById(R.id.seven);
-        numberEightView = (Button) calculatorView.findViewById(R.id.eight);
-        numberNineView = (Button) calculatorView.findViewById(R.id.nine);
-        addView = (Button) calculatorView.findViewById(R.id.add);
-        subtractView = (Button) calculatorView.findViewById(R.id.subtract);
-        divideView = (Button) calculatorView.findViewById(R.id.divide);
-        multiplyView = (Button) calculatorView.findViewById(R.id.multiply);
+        numberOneButton = (Button) calculatorView.findViewById(R.id.one);
+        numberTwoButton = (Button) calculatorView.findViewById(R.id.two);
+        numberThreeButton = (Button) calculatorView.findViewById(R.id.three);
+        numberFourButton = (Button) calculatorView.findViewById(R.id.four);
+        numberFiveButton = (Button) calculatorView.findViewById(R.id.five);
+        numberSixButton = (Button) calculatorView.findViewById(R.id.six);
+        numberSevenButton = (Button) calculatorView.findViewById(R.id.seven);
+        numberEightButton = (Button) calculatorView.findViewById(R.id.eight);
+        numberNineButton = (Button) calculatorView.findViewById(R.id.nine);
+        addButton = (Button) calculatorView.findViewById(R.id.add);
+        subtractButton = (Button) calculatorView.findViewById(R.id.subtract);
+        divideButton = (Button) calculatorView.findViewById(R.id.divide);
+        multiplyButton = (Button) calculatorView.findViewById(R.id.multiply);
+        equalsButton = (Button) calculatorView.findViewById(R.id.equals);
         screenView = (TextView) calculatorView.findViewById(R.id.screenTextView);
     }
 
     @Test
-    public void firstNumberEntered() {
-        numberOneView.callOnClick();
-        numberTwoView.callOnClick();
-        numberThreeView.callOnClick();
-        numberFourView.callOnClick();
-        numberFiveView.callOnClick();
-        numberSixView.callOnClick();
-        numberSevenView.callOnClick();
-        numberEightView.callOnClick();
-        numberNineView.callOnClick();
+    public void firstNumberEnteredTest() {
+        numberOneButton.callOnClick();
+        numberTwoButton.callOnClick();
+        numberThreeButton.callOnClick();
+        numberFourButton.callOnClick();
+        numberFiveButton.callOnClick();
+        numberSixButton.callOnClick();
+        numberSevenButton.callOnClick();
+        numberEightButton.callOnClick();
+        numberNineButton.callOnClick();
         String numberEntered = Integer.toString(123456789);
         assertEquals("number entered should equal number on screen", numberEntered, screenView.getText());
     }
 
     @Test
-    public void secondNumberEntered() {
-        numberThreeView.callOnClick();
-        numberFourView.callOnClick();
-        addView.callOnClick();
+    public void secondNumberEnteredTest() {
+        numberThreeButton.callOnClick();
+        numberFourButton.callOnClick();
+        addButton.callOnClick();
         Assert.assertEquals("The operationWasSelected Boolean should be set to true in order for " +
                         "the second number to be entered",
                 true, calculatorView.controller.getOperationWasSelected());
@@ -90,51 +92,64 @@ public class CalculatorViewTest {
         assertEquals("saved number should be equal to the number on screen before " +
                 "entering the second number", screenView.getText(), savedNumberAsString);
 
-        numberOneView.callOnClick();
-        numberTwoView.callOnClick();
+        numberOneButton.callOnClick();
+        numberTwoButton.callOnClick();
 
         String numberEntered = Integer.toString(12);
         assertEquals("number entered should equal number on screen", numberEntered, screenView.getText());
     }
 
     @Test
-    public void operationButtonClicked() {
-        addView.callOnClick();
+    public void onClickOperationTest() {
+        addButton.callOnClick();
         Assert.assertEquals("after setting MathOperation with a + the," +
                         " operation should be equal to ADD",
                 Calculator.MathOperation.ADD, calculatorView.controller.getSelectedMathOperation());
 
-        subtractView.callOnClick();
+        subtractButton.callOnClick();
         Assert.assertEquals("after setting MathOperation with a - the," +
                         " operation should be equal to SUBTRACT",
                 Calculator.MathOperation.SUBTRACT, calculatorView.controller.getSelectedMathOperation());
 
-        divideView.callOnClick();
+        divideButton.callOnClick();
         Assert.assertEquals("after setting MathOperation with a / the," +
                         " operation should be equal to DIVIDE",
                 Calculator.MathOperation.DIVIDE, calculatorView.controller.getSelectedMathOperation());
 
-        multiplyView.callOnClick();
+        multiplyButton.callOnClick();
         Assert.assertEquals("after setting MathOperation with a X the," +
                         " operation should be equal to MULTIPLY",
                 Calculator.MathOperation.MULTIPLY, calculatorView.controller.getSelectedMathOperation());
     }
 
+    @Test
+    public void onClickEqualsTest(){
+        numberOneButton.callOnClick();
+        numberFiveButton.callOnClick();
+        addButton.callOnClick();
+        numberFourButton.callOnClick();
+        equalsButton.callOnClick();
+        assertEquals("savedNumber should be set to equation result",
+                19, calculatorView.controller.getSavedNumber(), 0);
+        assertEquals("screen should be set to first number + second number",
+                19, screenView.getText());
+    }
+
     @After
     public void tearDown() {
-        numberOneView = null;
-        numberTwoView = null;
-        numberThreeView = null;
-        numberFourView = null;
-        numberFiveView = null;
-        numberSixView = null;
-        numberSevenView = null;
-        numberEightView = null;
-        numberNineView = null;
-        addView = null;
-        divideView = null;
-        subtractView = null;
-        multiplyView = null;
+        numberOneButton = null;
+        numberTwoButton = null;
+        numberThreeButton = null;
+        numberFourButton = null;
+        numberFiveButton = null;
+        numberSixButton = null;
+        numberSevenButton = null;
+        numberEightButton = null;
+        numberNineButton = null;
+        addButton = null;
+        divideButton = null;
+        subtractButton = null;
+        multiplyButton = null;
         screenView = null;
         calculatorView = null;
     }
