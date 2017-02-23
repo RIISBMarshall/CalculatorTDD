@@ -17,6 +17,7 @@ public class CalculatorView extends AppCompatActivity {
     private TextView screen;
     public Controller controller;
     private NumberFormat numberFormat;
+    private int color;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class CalculatorView extends AppCompatActivity {
         controller = new Controller();
         screen = (TextView) findViewById(R.id.screenTextView);
         numberFormat = new DecimalFormat("##.###");
+        color = 0;
     }
 
     public void onClickNumber(View v) {
@@ -76,5 +78,9 @@ public class CalculatorView extends AppCompatActivity {
     public void onClickClear(View v){
         controller.setSavedNumber(0);
         screen.setText("0");
+    }
+
+    public void onClickChangeBackground(View view) {
+
     }
     }

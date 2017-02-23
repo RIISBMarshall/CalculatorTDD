@@ -1,6 +1,8 @@
 package com.example.bmarshall.calculatortdd;
 
+import android.graphics.Color;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.example.bmarshall.calculatortdd.Model.Calculator;
@@ -41,6 +43,7 @@ public class CalculatorViewTest {
     private Button subtractButton;
     private Button multiplyButton;
     private Button equalsButton;
+    private Button changeBackground;
     private TextView screenView;
     private Button clearButton;
     private CalculatorView calculatorView;
@@ -64,6 +67,7 @@ public class CalculatorViewTest {
         multiplyButton = (Button) calculatorView.findViewById(R.id.multiply);
         equalsButton = (Button) calculatorView.findViewById(R.id.equals);
         clearButton = (Button) calculatorView.findViewById(R.id.clearButton);
+        changeBackground = (Button) calculatorView.findViewById(R.id.changeBackground);
         screenView = (TextView) calculatorView.findViewById(R.id.screenTextView);
     }
 
@@ -179,6 +183,14 @@ public class CalculatorViewTest {
         clearButton.callOnClick();
         assertEquals("screen should be set to 0 after clear", "0", screenView.getText());
         assertEquals("saved number should be set to 0", 0.0, calculatorView.controller.getSavedNumber(), 0);
+    }
+
+    @Test
+    public void onClickChangeBackgroundTest(){
+        changeBackground.callOnClick();
+        GridLayout background = (GridLayout) calculatorView.findViewById(R.id.activity_main);
+        int currentColor = background.getSolidColor();
+        Assert.assertEquals("currentColor should be white", Color.BLUE, currentColor);
     }
 
     @After
