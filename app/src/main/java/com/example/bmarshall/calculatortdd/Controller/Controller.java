@@ -22,16 +22,12 @@ public class Controller {
         return calculator.getSelectedMathOperation();
     }
 
-    public boolean getOperationWasSelected(){
+    public boolean getOperationWasSelected() {
         return calculator.getOperationWasSelected();
     }
 
     public double getSavedNumber() {
         return calculator.getSavedNumber();
-    }
-
-    public void setSelectedMathOperation(Calculator.MathOperation selectedMathOperation) {
-        calculator.setSelectedMathOperation(selectedMathOperation);
     }
 
     public void setOperationWasSelected(boolean operationWasSelected) {
@@ -42,19 +38,19 @@ public class Controller {
         calculator.setSavedNumber(savedNumber);
     }
 
-    public void add(double secondNumber){
+    public void add(double secondNumber) {
         calculator.add(secondNumber);
     }
 
-    public void subtract(double secondNumber){
+    public void subtract(double secondNumber) {
         calculator.subtract(secondNumber);
     }
 
-    public void divide(double secondNumber){
+    public void divide(double secondNumber) {
         calculator.divide(secondNumber);
     }
 
-    public void multiply(double secondNumber){
+    public void multiply(double secondNumber) {
         calculator.multiply(secondNumber);
     }
 }

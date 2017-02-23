@@ -1,9 +1,11 @@
 package com.example.bmarshall.calculatortdd.View;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 import com.example.bmarshall.calculatortdd.Controller.Controller;
@@ -18,6 +20,7 @@ public class CalculatorView extends AppCompatActivity {
     public Controller controller;
     private NumberFormat numberFormat;
     private int color;
+    private GridLayout background;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,7 @@ public class CalculatorView extends AppCompatActivity {
         screen = (TextView) findViewById(R.id.screenTextView);
         numberFormat = new DecimalFormat("##.###");
         color = 0;
+        background = (GridLayout) findViewById(R.id.activity_main);
     }
 
     public void onClickNumber(View v) {
@@ -81,6 +85,26 @@ public class CalculatorView extends AppCompatActivity {
     }
 
     public void onClickChangeBackground(View view) {
+        color = color + 1;
 
+        switch (color % 5) {
+            case 0:
+                background.setBackgroundColor(Color.WHITE);
+                break;
+            case 1:
+                background.setBackgroundColor(Color.BLUE);
+                screen.setTextColor(Color.RED);
+                break;
+            case 2:
+                background.setBackgroundColor(Color.RED);
+                screen.setTextColor(Color.BLACK);
+                break;
+            case 3:
+                background.setBackgroundColor(Color.YELLOW);
+                break;
+            case 4:
+                background.setBackgroundColor(Color.GREEN);
+                break;
+        }
     }
     }

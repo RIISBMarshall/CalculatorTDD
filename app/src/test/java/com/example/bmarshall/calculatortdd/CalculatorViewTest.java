@@ -1,6 +1,9 @@
 package com.example.bmarshall.calculatortdd;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.support.v4.content.ContextCompat;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.TextView;
@@ -186,11 +189,23 @@ public class CalculatorViewTest {
     }
 
     @Test
-    public void onClickChangeBackgroundTest(){
+    public void onClickChangeBackgroundTest() {
         changeBackground.callOnClick();
         GridLayout background = (GridLayout) calculatorView.findViewById(R.id.activity_main);
-        int currentColor = background.getSolidColor();
-        Assert.assertEquals("currentColor should be white", Color.BLUE, currentColor);
+        ColorDrawable backgroundColor = (ColorDrawable) background.getBackground();
+        assertEquals("currentColor should be blue", Color.BLUE, backgroundColor.getColor());
+        changeBackground.callOnClick();
+        backgroundColor = (ColorDrawable) background.getBackground();
+        assertEquals("currentColor should be red", Color.RED, backgroundColor.getColor());
+        changeBackground.callOnClick();
+        backgroundColor = (ColorDrawable) background.getBackground();
+        assertEquals("currentColor should be yellow", Color.YELLOW, backgroundColor.getColor());
+        changeBackground.callOnClick();
+        backgroundColor = (ColorDrawable) background.getBackground();
+        assertEquals("currentColor should be green", Color.GREEN, backgroundColor.getColor());
+        changeBackground.callOnClick();
+        backgroundColor = (ColorDrawable) background.getBackground();
+        assertEquals("currentColor should be white", Color.WHITE, backgroundColor.getColor());
     }
 
     @After
