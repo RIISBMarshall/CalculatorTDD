@@ -74,6 +74,7 @@ public class CalculatorView extends AppCompatActivity {
         }
 
     public void onClickClear(View v){
-
+        controller.setSavedNumber(0);
+        screen.setText("0");
     }
     }
