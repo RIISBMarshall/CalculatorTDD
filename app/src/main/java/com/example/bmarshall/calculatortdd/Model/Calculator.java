@@ -68,14 +68,14 @@ public class Calculator {
     }
 
     public void subtract(double secondNumber){
-
+        savedNumber = savedNumber - secondNumber;
     }
 
     public void divide(double secondNumber){
-
+        savedNumber = savedNumber / secondNumber;
     }
 
     public void multiply(double secondNumber){
-
+        savedNumber = savedNumber * secondNumber;
     }
 }

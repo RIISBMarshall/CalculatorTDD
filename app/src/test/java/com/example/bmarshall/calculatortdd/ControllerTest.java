@@ -79,9 +79,32 @@ public class ControllerTest {
     }
 
     @Test
-    public void add(){
+    public void addTest(){
         controller.setSavedNumber(5);
         controller.add(5);
         Assert.assertEquals("saved number should equal 10", 10.0, controller.getSavedNumber(), 0);
     }
+
+    @Test
+    public void subtractTest(){
+        controller.setSavedNumber(5);
+        controller.subtract(2);
+        Assert.assertEquals("saved number should equal 3", 3.0, controller.getSavedNumber(), 0);
+    }
+
+    @Test
+    public void multiplyTest(){
+        controller.setSavedNumber(5);
+        controller.multiply(5);
+        Assert.assertEquals("saved number should equal 25", 25.0, controller.getSavedNumber(), 0);
+    }
+
+    @Test
+    public void divideTest(){
+        controller.setSavedNumber(15);
+        controller.divide(3);
+        Assert.assertEquals("saved number should equal 5", 5.0, controller.getSavedNumber(), 0);
+    }
+
+
 }

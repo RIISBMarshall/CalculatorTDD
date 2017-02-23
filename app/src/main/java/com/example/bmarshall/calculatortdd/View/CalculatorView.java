@@ -59,6 +59,15 @@ public class CalculatorView extends AppCompatActivity {
             case ADD:
                 controller.add(secondNumber);
                 break;
+            case SUBTRACT:
+                controller.subtract(secondNumber);
+                break;
+            case MULTIPLY:
+                controller.multiply(secondNumber);
+                break;
+            case DIVIDE:
+                controller.divide(secondNumber);
+                break;
         }
         String formattedSavedNumber = numberFormat.format(controller.getSavedNumber());
         screen.setText(formattedSavedNumber);

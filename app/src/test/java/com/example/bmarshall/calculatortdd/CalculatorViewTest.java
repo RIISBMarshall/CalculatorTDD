@@ -133,6 +133,43 @@ public class CalculatorViewTest {
                 19, calculatorView.controller.getSavedNumber(), 0);
         assertEquals("screen should be set to first number + second number",
                 "19", screenView.getText());
+
+        screenView.setText("");
+
+        numberOneButton.callOnClick();
+        numberFiveButton.callOnClick();
+        subtractButton.callOnClick();
+        numberFourButton.callOnClick();
+        equalsButton.callOnClick();
+        assertEquals("savedNumber should be set to equation result",
+                11, calculatorView.controller.getSavedNumber(), 0);
+        assertEquals("screen should be set to first number + second number",
+                "11", screenView.getText());
+
+        screenView.setText("");
+
+        numberOneButton.callOnClick();
+        numberFiveButton.callOnClick();
+        multiplyButton.callOnClick();
+        numberFourButton.callOnClick();
+        equalsButton.callOnClick();
+        assertEquals("savedNumber should be set to equation result",
+                60, calculatorView.controller.getSavedNumber(), 0);
+        assertEquals("screen should be set to first number + second number",
+                "60", screenView.getText());
+
+        screenView.setText("");
+
+        numberOneButton.callOnClick();
+        numberFiveButton.callOnClick();
+        divideButton.callOnClick();
+        numberThreeButton.callOnClick();
+        equalsButton.callOnClick();
+        assertEquals("savedNumber should be set to equation result",
+                5, calculatorView.controller.getSavedNumber(), 0);
+        assertEquals("screen should be set to first number + second number",
+                "5", screenView.getText());
+
     }
 
     @After

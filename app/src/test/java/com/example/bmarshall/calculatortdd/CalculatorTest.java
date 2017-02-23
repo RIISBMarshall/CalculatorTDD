@@ -95,4 +95,25 @@ public class CalculatorTest {
         calculator.add(5);
         Assert.assertEquals("saved number should be 10", 10.0, calculator.getSavedNumber());
     }
+
+    @Test
+    public void subtractTest(){
+        calculator.setSavedNumber(5);
+        calculator.subtract(2);
+        org.junit.Assert.assertEquals("saved number should equal 3", 3.0, calculator.getSavedNumber(), 0);
+    }
+
+    @Test
+    public void multiplyTest(){
+        calculator.setSavedNumber(5);
+        calculator.multiply(5);
+        org.junit.Assert.assertEquals("saved number should equal 25", 25.0, calculator.getSavedNumber(), 0);
+    }
+
+    @Test
+    public void divideTest(){
+        calculator.setSavedNumber(15);
+        calculator.divide(3);
+        org.junit.Assert.assertEquals("saved number should equal 5", 5.0, calculator.getSavedNumber(), 0);
+    }
 }
