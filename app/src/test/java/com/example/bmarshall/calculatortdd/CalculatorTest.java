@@ -88,4 +88,11 @@ public class CalculatorTest {
         calculator.setSavedNumber(numberToSave);
         Assert.assertEquals(numberToSave, calculator.getSavedNumber());
     }
+
+    @Test
+    public void addTest(){
+        calculator.setSavedNumber(5);
+        calculator.add(5);
+        Assert.assertEquals("saved number should be 10", 10.0, calculator.getSavedNumber());
+    }
 }

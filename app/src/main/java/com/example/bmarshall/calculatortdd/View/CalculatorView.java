@@ -7,11 +7,16 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.bmarshall.calculatortdd.Controller.Controller;
+import com.example.bmarshall.calculatortdd.Model.Calculator;
 import com.example.bmarshall.calculatortdd.R;
+
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 
 public class CalculatorView extends AppCompatActivity {
     private TextView screen;
     public Controller controller;
+    private NumberFormat numberFormat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +24,7 @@ public class CalculatorView extends AppCompatActivity {
         setContentView(R.layout.view_calculator);
         controller = new Controller();
         screen = (TextView) findViewById(R.id.screenTextView);
+        numberFormat = new DecimalFormat("##.###");
     }
 
     public void onClickNumber(View v) {
@@ -46,6 +52,15 @@ public class CalculatorView extends AppCompatActivity {
     }
 
     public void onClickEquals(View v){
-
+        String screenNumber = (String) screen.getText();
+        double secondNumber = Double.parseDouble(screenNumber);
+        Calculator.MathOperation mathOperation = controller.getSelectedMathOperation();
+        switch (mathOperation) {
+            case ADD:
+                controller.add(secondNumber);
+                break;
+        }
+        String formattedSavedNumber = numberFormat.format(controller.getSavedNumber());
+        screen.setText(formattedSavedNumber);
+        }
     }
-}

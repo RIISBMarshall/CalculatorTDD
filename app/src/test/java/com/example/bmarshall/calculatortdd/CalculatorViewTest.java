@@ -132,7 +132,7 @@ public class CalculatorViewTest {
         assertEquals("savedNumber should be set to equation result",
                 19, calculatorView.controller.getSavedNumber(), 0);
         assertEquals("screen should be set to first number + second number",
-                19, screenView.getText());
+                "19", screenView.getText());
     }
 
     @After

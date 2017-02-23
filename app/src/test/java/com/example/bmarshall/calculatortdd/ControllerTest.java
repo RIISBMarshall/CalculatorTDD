@@ -77,4 +77,11 @@ public class ControllerTest {
                         " operation should be equal to ADD",
                 Calculator.MathOperation.ADD, controller.getSelectedMathOperation());
     }
+
+    @Test
+    public void add(){
+        controller.setSavedNumber(5);
+        controller.add(5);
+        Assert.assertEquals("saved number should equal 10", 10.0, controller.getSavedNumber(), 0);
+    }
 }

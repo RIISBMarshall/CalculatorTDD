@@ -64,7 +64,7 @@ public class Calculator {
     }
 
     public void add(double secondNumber){
-
+        savedNumber = savedNumber + secondNumber;
     }
 
     public void subtract(double secondNumber){

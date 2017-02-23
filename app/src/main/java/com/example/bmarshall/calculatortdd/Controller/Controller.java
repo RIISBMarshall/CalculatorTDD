@@ -41,4 +41,20 @@ public class Controller {
     public void setSavedNumber(double savedNumber) {
         calculator.setSavedNumber(savedNumber);
     }
+
+    public void add(double secondNumber){
+        calculator.add(secondNumber);
+    }
+
+    public void subtract(double secondNumber){
+        calculator.subtract(secondNumber);
+    }
+
+    public void divide(double secondNumber){
+        calculator.divide(secondNumber);
+    }
+
+    public void multiply(double secondNumber){
+        calculator.multiply(secondNumber);
+    }
 }
