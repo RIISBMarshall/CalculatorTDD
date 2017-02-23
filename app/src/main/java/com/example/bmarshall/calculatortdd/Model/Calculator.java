@@ -12,13 +12,15 @@ public class Calculator {
 
     private MathOperation selectedMathOperation;
 
-    private Boolean operationWasSelected;
+    private boolean operationWasSelected;
+
+    private double savedNumber;
 
     public Calculator() {
-
+        operationWasSelected = false;
+        savedNumber = 0;
     }
 
-    //Feature 2: A user can can select a math operation(+,-,*,/)
     public void setSelectedMathOperation(String mathOperation) {
         switch (mathOperation) {
             case "+":
@@ -36,8 +38,27 @@ public class Calculator {
         }
     }
 
-    //Feature 2: A user can can select a math operation(+,-,*,/)
     public MathOperation getSelectedMathOperation() {
         return selectedMathOperation;
+    }
+
+    public boolean getOperationWasSelected(){
+        return operationWasSelected;
+    }
+
+    public double getSavedNumber() {
+        return savedNumber;
+    }
+
+    public void setSelectedMathOperation(MathOperation selectedMathOperation) {
+        this.selectedMathOperation = selectedMathOperation;
+    }
+
+    public void setOperationWasSelected(Boolean operationWasSelected) {
+        this.operationWasSelected = operationWasSelected;
+    }
+
+    public void setSavedNumber(Double savedNumber) {
+        this.savedNumber = savedNumber;
     }
 }

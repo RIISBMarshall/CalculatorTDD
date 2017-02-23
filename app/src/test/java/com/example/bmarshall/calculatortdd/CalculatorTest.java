@@ -50,4 +50,42 @@ public class CalculatorTest {
                         " operation should be equal to ADD",
                 Calculator.MathOperation.MULTIPLY, calculator.getSelectedMathOperation());
     }
+
+    @Test
+    public void getSelectedMathOperationTest() {
+        calculator.setSelectedMathOperation(Calculator.MathOperation.ADD);
+        Assert.assertEquals(Calculator.MathOperation.ADD, calculator.getSelectedMathOperation());
+    }
+
+    @Test
+    public void getOperationWasSelectedTest(){
+        calculator.setOperationWasSelected(true);
+        Assert.assertEquals(true, calculator.getOperationWasSelected());
+    }
+
+    @Test
+    public void getSavedNumberTest() {
+        double numberToSave = 23.8;
+        calculator.setSavedNumber(numberToSave);
+        Assert.assertEquals(numberToSave, calculator.getSavedNumber());
+    }
+
+    @Test
+    public void setSelectedMathOperationTest() {
+        calculator.setSelectedMathOperation(Calculator.MathOperation.ADD);
+        Assert.assertEquals(Calculator.MathOperation.ADD, calculator.getSelectedMathOperation());
+    }
+
+    @Test
+    public void setOperationWasSelectedTest() {
+        calculator.setOperationWasSelected(true);
+        Assert.assertEquals(true, calculator.getOperationWasSelected());
+    }
+
+    @Test
+    public void setSavedNumberTest() {
+        Double numberToSave = 23.8;
+        calculator.setSavedNumber(numberToSave);
+        Assert.assertEquals(numberToSave, calculator.getSavedNumber());
+    }
 }

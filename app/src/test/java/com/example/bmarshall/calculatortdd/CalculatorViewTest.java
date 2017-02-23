@@ -79,6 +79,26 @@ public class CalculatorViewTest {
     }
 
     @Test
+    public void secondNumberEntered(){
+        numberThreeView.callOnClick();
+        numberFourView.callOnClick();
+        addView.callOnClick();
+        Boolean isTrue = true;
+        Assert.assertEquals("The operationWasSelected Boolean should be set to true in order for " +
+                "the second number to be entered",
+                isTrue, calculatorView.controller.getOperationWasSelected());
+        String savedNumberAsString = Double.toString(calculatorView.controller.getSavedNumber());
+        assertEquals("saved number should be equal to the number on screen before " +
+                "entering the second number", savedNumberAsString, screenView.getText());
+
+        numberOneView.callOnClick();
+        numberTwoView.callOnClick();
+
+        String numberEntered = Integer.toString(12);
+        assertEquals("number entered should equal number on screen", numberEntered, screenView.getText());
+    }
+
+    @Test
     public void operationButtonClicked() {
         addView.callOnClick();
         Assert.assertEquals("after setting MathOperation with a + the," +

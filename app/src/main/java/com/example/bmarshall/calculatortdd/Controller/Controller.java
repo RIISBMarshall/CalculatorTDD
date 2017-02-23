@@ -21,4 +21,24 @@ public class Controller {
     public Calculator.MathOperation getSelectedMathOperation() {
         return calculator.getSelectedMathOperation();
     }
+
+    public boolean getOperationWasSelected(){
+        return calculator.getOperationWasSelected();
+    }
+
+    public double getSavedNumber() {
+        return calculator.getSavedNumber();
+    }
+
+    public void setSelectedMathOperation(Calculator.MathOperation selectedMathOperation) {
+        calculator.setSelectedMathOperation(selectedMathOperation);
+    }
+
+    public void setOperationWasSelected(Boolean operationWasSelected) {
+        calculator.setOperationWasSelected(operationWasSelected);
+    }
+
+    public void setSavedNumber(Double savedNumber) {
+        calculator.setSavedNumber(savedNumber);
+    }
 }

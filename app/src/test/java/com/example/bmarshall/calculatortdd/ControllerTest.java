@@ -42,4 +42,28 @@ public class ControllerTest {
                         " operation should be equal to ADD",
                 Calculator.MathOperation.ADD, controller.getSelectedMathOperation());
     }
+
+    @Test
+    public void getOperationWasSelectedTest() {
+        controller.setOperationWasSelected(true);
+        Assert.assertEquals(true, controller.getOperationWasSelected());
+    }
+
+    @Test
+    public void getSavedNumberTest() {
+        double numberToSave = 52.9;
+        controller.setSavedNumber(numberToSave);
+        Assert.assertEquals(numberToSave, controller.getSavedNumber(), 0);
+    }
+
+    @Test
+    public void setOperationWasSelectedTest() {
+        controller.setOperationWasSelected(true);
+        Assert.assertEquals(true, controller.getOperationWasSelected());
+    }
+
+    @Test
+    public void setSavedNumberTest() {
+
+    }
 }
