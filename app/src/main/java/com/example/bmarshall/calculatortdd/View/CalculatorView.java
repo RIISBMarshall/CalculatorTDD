@@ -72,4 +72,8 @@ public class CalculatorView extends AppCompatActivity {
         String formattedSavedNumber = numberFormat.format(controller.getSavedNumber());
         screen.setText(formattedSavedNumber);
         }
+
+    public void onClickClear(View v){
+
+    }
     }

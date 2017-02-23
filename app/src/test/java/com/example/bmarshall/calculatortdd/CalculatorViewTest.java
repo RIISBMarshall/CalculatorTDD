@@ -42,6 +42,7 @@ public class CalculatorViewTest {
     private Button multiplyButton;
     private Button equalsButton;
     private TextView screenView;
+    private Button clearButton;
     private CalculatorView calculatorView;
 
     @Before
@@ -62,6 +63,7 @@ public class CalculatorViewTest {
         divideButton = (Button) calculatorView.findViewById(R.id.divide);
         multiplyButton = (Button) calculatorView.findViewById(R.id.multiply);
         equalsButton = (Button) calculatorView.findViewById(R.id.equals);
+        clearButton = (Button) calculatorView.findViewById(R.id.clearButton);
         screenView = (TextView) calculatorView.findViewById(R.id.screenTextView);
     }
 
@@ -123,7 +125,7 @@ public class CalculatorViewTest {
     }
 
     @Test
-    public void onClickEqualsTest(){
+    public void onClickEqualsTest() {
         numberOneButton.callOnClick();
         numberFiveButton.callOnClick();
         addButton.callOnClick();
@@ -169,7 +171,14 @@ public class CalculatorViewTest {
                 5, calculatorView.controller.getSavedNumber(), 0);
         assertEquals("screen should be set to first number + second number",
                 "5", screenView.getText());
+    }
 
+    @Test
+    public void onClickClearTest() {
+        numberOneButton.callOnClick();
+        clearButton.callOnClick();
+        assertEquals("screen should be set to 0 after clear", "0", screenView.getText());
+        assertEquals("saved number should be set to 0", 0.0, calculatorView.controller.getSavedNumber(), 0);
     }
 
     @After
